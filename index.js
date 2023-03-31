@@ -145,7 +145,7 @@ const record = mongoose.model('recodedVideo',recordings);
 // app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+app.use('/', require('./app.js'))
 
 app.get('/lessData', async(req,res)=>{
     let response = await model.find().lean();
