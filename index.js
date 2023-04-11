@@ -8,7 +8,7 @@ const cors = require('cors');
 // const { Binary } = require('mongodb');
 // const ThumbnailGenerator = require('video-thumbnail-generator');
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 3000;
 app.use(cors())
 app.use(express.json({limit:"200mb"}));
 // app.use(express.urlencoded({ limit: "200mb", extended: true, parameterLimit: 50000 }))
@@ -27,11 +27,11 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 
 
-// mongoose.connect('mongodb+srv://' + (process.env.MONGO).toString(),(req,res)=>{
+mongoose.connect('mongodb+srv://' + (process.env.MONGO).toString(),(req,res)=>{
 
-    // console.log("MongoDB connected",process.env.MONGO);
-    // console.log(process.env.NAME);
-// })
+    console.log("MongoDB connected",process.env.MONGO);
+    console.log(process.env.NAME);
+})
 
 const video = mongoose.Schema({
     data: {
