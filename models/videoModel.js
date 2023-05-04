@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const video = new mongoose.Schema({
     data: {
          type: String,
@@ -38,4 +39,7 @@ const video = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('video', video)
+module.exports = mongoose.model('video', video, 'videos')
+
+
+

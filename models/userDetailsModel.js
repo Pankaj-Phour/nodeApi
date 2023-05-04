@@ -36,4 +36,4 @@ const userDetails = new mongoose.Schema({
     videos:[String]
 });
 
-module.exports = mongoose.model('userDetails', userDetails);
+module.exports = mongoose.model('userDetails', userDetails, 'userdetails');

@@ -8,4 +8,4 @@ const recordings = new mongoose.Schema({
    
 })
 
-module.exports = mongoose.model('Recording', recordings)
+module.exports = mongoose.model('Recording', recordings, 'recordings')
