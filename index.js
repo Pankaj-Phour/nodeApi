@@ -22,6 +22,7 @@ const { updateProfile } = require('./controllers/updateProfile.js');
 const { signIn } = require('./controllers/signIn.js');
 const { singleUserVideo } = require('./controllers/singleUserVideo.js');
 const { recordings } = require('./controllers/recordings.js');
+const { selectedRecording } = require('./controllers/selectedRecording.js');
 const { recordedVideo } = require('./controllers/recordedVideo.js');
 const { countryList } = require('./controllers/countryList.js');
 // app.use(express.urlencoded({ limit: "200mb", extended: true, parameterLimit: 50000 }))
@@ -62,6 +63,8 @@ app.get('/getCountry', countryList)
 app.get('/userData', userData)
 
 app.get('/recordings', recordings)
+
+app.get('/selectedRecording', selectedRecording)
 
 app.post('/graphData', graphData)
 
