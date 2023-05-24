@@ -97,7 +97,4 @@ app.post('/recordedVideo', recordedVideo)
 
 
 
-app.listen(
-    PORT,
-    ()=> console.log(`Your app is live on http://localhost:${PORT}`)
-)
+app.listen(PORT,()=> console.log(`Your app is live on http://localhost:${PORT}`))
