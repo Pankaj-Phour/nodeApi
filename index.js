@@ -59,28 +59,17 @@ app.get('/getTableData', async(req,res)=>{
 // Api for Country names 
 
 app.get('/getCountry', countryList)
-
 app.get('/userData', userData)
-
 app.get('/recordings', recordings)
-
 app.get('/selectedRecording', selectedRecording)
-
 app.post('/graphData', graphData)
-
 app.post('/singleVideo', singleVideo)
-
 app.post('/create-user', createUser);
 app.post('/getUserData', getUserData)
 app.post('/signup', signUp);
-
 app.post('/updateProfile', updateProfile)
-
-
 app.post('/signIn', signIn)
-
 app.post('/userVideo', singleUserVideo)
-
 app.post('/recordedVideo', recordedVideo)
 // This Api was used to post data to database the array of countries
 
