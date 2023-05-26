@@ -37,10 +37,14 @@ const { countryList } = require('./controllers/countryList.js');
 // app.use('/', require('./app.js'))
 app.use(express.static('./pages'))
 
+// Api for getting less data of user's account (used for dummy eemo project)
 app.get('/lessData', lessData)
 
+// Api for getting the videos in user's account ( used for dummy eemo project) 
 app.get('/videos', videos)
 
+
+// Api for getting the table data ( used for the dummy eemo project) 
 app.get('/getTableData', async(req,res)=>{
     res.status(200).send({
         code:200,
