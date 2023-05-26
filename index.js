@@ -43,7 +43,6 @@ app.get('/lessData', lessData)
 // Api for getting the videos in user's account ( used for dummy eemo project) 
 app.get('/videos', videos)
 
-
 // Api for getting the table data ( used for the dummy eemo project) 
 app.get('/getTableData', async(req,res)=>{
     res.status(200).send({
@@ -59,9 +58,6 @@ app.get('/getTableData', async(req,res)=>{
     })
 })
 
-
-// Api for Country names 
-
 // API for getting the countries list 
 app.get('/getCountry', countryList)
 
@@ -73,6 +69,7 @@ app.get('/recordings', recordings)
 
 // Api for getting the video of a selected user for face detection project 
 app.get('/selectedRecording', selectedRecording)
+
 
 // Api for posting user's video to backend database (used for faceDetection project) 
 app.post('/recordedVideo', recordedVideo)
