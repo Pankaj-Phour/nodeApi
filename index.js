@@ -22,6 +22,7 @@ const { updateProfile } = require('./controllers/updateProfile.js');
 const { signIn } = require('./controllers/signIn.js');
 const { singleUserVideo } = require('./controllers/singleUserVideo.js');
 const { recordings } = require('./controllers/recordings.js');
+const { selectedRecording } = require('./controllers/selectedRecording.js');
 const { recordedVideo } = require('./controllers/recordedVideo.js');
 const { countryList } = require('./controllers/countryList.js');
 // app.use(express.urlencoded({ limit: "200mb", extended: true, parameterLimit: 50000 }))
@@ -36,10 +37,13 @@ const { countryList } = require('./controllers/countryList.js');
 // app.use('/', require('./app.js'))
 app.use(express.static('./pages'))
 
+// Api for getting less data of user's account (used for dummy eemo project)
 app.get('/lessData', lessData)
 
+// Api for getting the videos in user's account ( used for dummy eemo project) 
 app.get('/videos', videos)
 
+// Api for getting the table data ( used for the dummy eemo project) 
 app.get('/getTableData', async(req,res)=>{
     res.status(200).send({
         code:200,
@@ -54,33 +58,51 @@ app.get('/getTableData', async(req,res)=>{
     })
 })
 
-
-// Api for Country names 
-
+// API for getting the countries list 
 app.get('/getCountry', countryList)
 
+// Api for getting the usersData 
 app.get('/userData', userData)
 
+// Api for getting all the data included videos of all the users on faceDetection project (frontEnd) 
 app.get('/recordings', recordings)
 
+// Api for getting the video of a selected user for face detection project 
+app.get('/selectedRecording', selectedRecording)
+
+
+// Api for posting user's video to backend database (used for faceDetection project) 
+app.post('/recordedVideo', recordedVideo)
+
+// Api for getting the graphData (used for dummy eemo project) 
 app.post('/graphData', graphData)
 
+// Api for getting the single video from dashboard (used for dummy eemo project) 
 app.post('/singleVideo', singleVideo)
 
+// Api for creating a user ( used for dummy eemo project)
 app.post('/create-user', createUser);
+
+// api for getting the data for a selected account ( used for dummy eemo project)
 app.post('/getUserData', getUserData)
+
+// Api for signup ( used for dummy eemo project) 
 app.post('/signup', signUp);
 
+// Api for updating the profile of the user ( used for dummy eemo project) 
 app.post('/updateProfile', updateProfile)
 
-
+// Api for signing in ( used for dummy eemo project) 
 app.post('/signIn', signIn)
 
+// Api for updating the user's video (used for a dummy project) 
 app.post('/userVideo', singleUserVideo)
 
-app.post('/recordedVideo', recordedVideo)
-// This Api was used to post data to database the array of countries
 
+
+
+
+// This Api was used to post data to database the array of countries
 // app.post('/getCountry', async (req,res)=>{
 //     const data = req.body;
 //     // console.log("Data-----------",data);
@@ -97,7 +119,4 @@ app.post('/recordedVideo', recordedVideo)
 
 
 
-app.listen(
-    PORT,
-    ()=> console.log(`Your app is live on http://localhost:${PORT}`)
-)
+app.listen(PORT,()=> console.log(`Your app is live on http://localhost:${PORT}`))
