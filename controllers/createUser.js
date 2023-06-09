@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 exports.createUser = upload.single('avatar'), (req, res) => {
 
 
-    console.log("req.file-----------------------",req.file)
+    // console.log("req.file-----------------------",req.file)
    const data =  req.body;
    const video = new model({
        data: data.avatar,

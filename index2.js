@@ -12,9 +12,9 @@ const app = express();
 // server configuration
 const PORT = process.env.PORT || 3000;
 mongoose.connect('mongodb://localhost:27017/Pankaj', (req, res) => {
-    console.log('Mongo DB connected');
+    // console.log('Mongo DB connected');
 })
-console.log("heloo")
+// console.log("heloo")
 const users = mongoose.Schema({
     name: {
         type: String,
@@ -61,10 +61,10 @@ app.post('/api', (req, res) => {
              url: detail[0].photo
             });
    
-        console.log(user);
+        // console.log(user);
         user.save();
 
-        console.log("detail-----------------",detail);
+        // console.log("detail-----------------",detail);
         // let responseData = await  model.find().lean()
         // console.log('responseData-----------------------------------',responseData);
 
@@ -82,7 +82,7 @@ app.get('/', (req, res) => {
 
 app.get('/user', async(req,res)=>{
     let responseData = await  model.find().lean()
-    console.log('responseData-----------------------------------',responseData);
+    // console.log('responseData-----------------------------------',responseData);
     res.status(200).send(
         {
             code:200,
@@ -96,10 +96,10 @@ app.get('/user', async(req,res)=>{
 app.get('/deleteUser', async (req,res)=>{
              let data = req.query.id
    
-    console.log("Data------------------------------",data);
+    // console.log("Data------------------------------",data);
 
     const find =await model.deleteOne({_id:data})
-    console.log("FInd--------------------",find);
+    // console.log("FInd--------------------",find);
 
 
     res.status(200).send({
@@ -128,14 +128,14 @@ app.post('/update', (req,res)=>{
   
     let apiData = req.body
     // console.log("update name--------------",req.data.name)
-    console.log("apiData ------------------------------",apiData)
+    // console.log("apiData ------------------------------",apiData)
 let name2="varun"
     const find = model.findByIdAndUpdate({_id:apiData.id},{url:apiData.url},{new : true },(err, doc) => {
         if (err) {
-            console.log("Something wrong when updating data!+++++++++++++++++++++++++++");
+            // console.log("Something wrong when updating data!+++++++++++++++++++++++++++");
         }
     
-        console.log("+++++++++++++++++++++++++++++++++++++++++",doc)
+        // console.log("+++++++++++++++++++++++++++++++++++++++++",doc)
     }
     ).lean()
 
@@ -150,16 +150,16 @@ let name2="varun"
 
 app.post('/updateDetails', (req,res)=>{
     let update = req.body;
-    console.log("update________________",update);
+    // console.log("update________________",update);
 
     const find = model.findByIdAndUpdate({_id:update.id},{name:update.name,date:update.date,time:update.time,exit:update.exit},{new:true},(err,doc) =>{
         if(err){
-            console.log("Error_---------------------------------");
+            // console.log("Error_---------------------------------");
         }
         // else{
 
         
-        console.log("_-----------------",doc);
+        // console.log("_-----------------",doc);
         // }
     }).lean()
 
