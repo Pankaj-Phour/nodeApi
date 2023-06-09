@@ -35,7 +35,8 @@ const { countryList } = require('./controllers/countryList.js');
 
 
 // app.use('/', require('./app.js'))
-app.use(express.static('./pages'))
+app.use(express.static('./pages'));
+app.use('/assets',express.static('./assets'));
 
 // Api for getting less data of user's account (used for dummy eemo project)
 app.get('/lessData', lessData)
